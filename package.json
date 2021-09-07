@@ -1,5 +1,6 @@
 {
   "name": "simple-state",
+  "description": "Simple State - Challenge",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
