@@ -16,7 +16,8 @@ const override = css`
 `;
 
 
-/** @description Component to display loading.
+/**
+ * @description Component to display loading.
  * @returns {JSX.Element} - Footer component.
  */
 export const Loading: React.FC = (): JSX.Element => (
