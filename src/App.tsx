@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Container } from 'react-bootstrap';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-function App() {
+import { PlanetList } from './page/PlanetList';
+import {Favorites} from './page/Favorites';
+import { NavBar } from './components/NavBar';
+import {Footer} from './components/Footer';
+import {Loading} from './components/Loading';
+
+/**
+ * @returns {JSX.Element} - Main app component.
+ */
+export function App(): JSX.Element {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Suspense
+      fallback={
+        <>
+          <Loading />
+        </>
+      }>
+      <BrowserRouter>
+        <NavBar />
+        <Container>
+          <Route path="/" component={PlanetList} exact />
+          <Route path="/favorites" component={Favorites} />
+        </Container>
+        <Footer />
+      </BrowserRouter>
+    </React.Suspense>
   );
 }
-
-export default App;
